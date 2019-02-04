@@ -1,0 +1,47 @@
+
+<div [hidden]="showLoader">
+  <div class="row">
+    <div class="col-md-6 p-0">
+        <h2>{{list.title}}</h2>
+    </div>
+    <div class="col-md-6 text-right p-0">
+      <label for="">
+        Search: <input type="text" [(ngModel)]="filterTxt" #filterTxt1="ngModel" class="form-control form-control-sm" />
+        <button class="btn btn-primary ml-2" (click)="filterResult()">Search</button>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped table-bordered table-sm">
+        <thead>
+          <tr>
+            <th class="th-sm" *ngFor="let heading of list.field">{{heading.name}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of list.records | paginate: {id: 'foo', itemsPerPage: list.limit, currentPage: page, totalItems: list.total}">
+            <td >{{row.sl_no}}</td>
+            <td >{{row.state_name}}</td>
+            <td >{{row.university_name}}</td>
+            <td >{{row.university_type}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pagination-controls  id="foo"
+                          (pageChange)="pageChanged($event)"
+                          maxSize="9"
+                          directionLinks="true"
+                          autoHide="true"
+                          responsive="true"
+                          previousLabel="Previous"
+                          nextLabel="Next"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+  </div>
+</div>
+<div [hidden]="!showLoader" class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>

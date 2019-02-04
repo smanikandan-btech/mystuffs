@@ -1,0 +1,28 @@
+1) Create following files and directories
+    i) index.html
+    ii) src directory
+    iii) inside src directory create app.js file.
+    iv) package.json
+    v) webpack.config.json
+2) run npm install webpack --save
+3) run npm instlal webpack-cli --save
+4) modify webpack.config.json file like below
+
+const path = require('path');
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        filename: 'bundle.js'
+    }
+}
+5) Modify package.json file like below
+{
+    ...
+    "scripts" : {
+        "start":"npm run webpack",
+        "webpack":"webpack -d --watch"
+    }
+    ...
+}
+6) run npm start
+7) check dist and dist/bundle.js file created and include that bundle.js file in index.html

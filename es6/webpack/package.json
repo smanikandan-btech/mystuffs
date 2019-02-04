@@ -1,0 +1,10 @@
+{
+    "dependencies": {
+        "webpack": "^4.29.0",
+        "webpack-cli": "^3.2.1"
+    },
+    "scripts": {
+        "start": "npm run webpack",
+        "webpack": "webpack -d --watch"
+    }
+}
