@@ -10,10 +10,10 @@ const routes: Routes = [
     path: 'universities',
     loadChildren: './universities/universities.module#UniversitiesModule'
   },
-  {
+  /*{
     path: '',
     loadChildren: './universities/universities.module#UniversitiesModule'
-  }
+  }*/
 ];
 
 @NgModule({
